@@ -37,6 +37,7 @@ Print a preview of the palette, RGB, and HEX codes:
 ``` python
 graduation_palette.show_palette()
 ```
+![show_palette](./graduation_show_palette.JPG)
 
 Return a nested array of RGB codes:
 ``` python
