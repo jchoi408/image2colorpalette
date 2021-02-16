@@ -35,13 +35,13 @@ graduation_rgb = cv2.cvtColor(graduation_bgr, cv2.COLOR_BGR2RGB)
 graduation_palette = image2colorpalette(graduation_rgb, palette_size=20)
 ```
 
-*Print a preview of the palette, RGB, and HEX codes:*
+**Print a preview of the palette, RGB, and HEX codes:**
 ``` python
 graduation_palette.show_palette()
 ```
 ![show_palette](./graduation_show_palette.JPG)
 
-*Return a nested array of RGB codes:*
+**Return a nested array of RGB codes:**
 ``` python
 graduation_palette.get_rgb()
 ```
@@ -79,7 +79,7 @@ array([[ 86,  59,  33],
        [203, 186,  59]], dtype=int64)
 ```
 
-*Return an array of HEX codes:*
+**Return an array of HEX codes:**
 ``` python
 graduation_palette.get_hex()
 ```
