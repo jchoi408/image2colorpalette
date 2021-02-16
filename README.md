@@ -142,6 +142,8 @@ plt.title('Kanye West - Graduation: Track Length (Seconds)', size=20)
 plt.xticks(size=12)
 plt.yticks(size=14)
 ```
+![show_method1](./example_viz_method_1.png)
+
 Since the cluster/palette size of the image was smaller than the previous run example with 30, our variety of colors get reduced and the most dominant colors of the image get selected.
 
 Let's try another method by using the 30 colors palette but randomly selection 13 of them. We can keep running the next chunk to generate new random combinations until we settle on one we like.
@@ -163,4 +165,6 @@ plt.title('Kanye West - Graduation: Track Length (Seconds)', size=20)
 plt.xticks(size=12)
 plt.yticks(size=14)
 ```
+![show_method2](./example_viz_method_2.png)
 
+IF you want to use the palette in Seaborn instead of Matplotlib, you can just use the `get_hex()` function inside the `palette` parameter within Seaborn's plotting functions just like how we used it above in Matplotlib's `color` parameter within the bar plot function.
