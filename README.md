@@ -20,7 +20,7 @@ After we `import image2colorpalette`, we need to use OpenCV to select an image f
 
 ![graduation](./kanye_graduation_cover.png)
 
-Once the image is in RGB format, we can insert it into the `image2colorpalette()` function and store it as a variable.. The default `palette_size` is 10, but we are going to extract 20 colors. Higher resolution images and the large palette sizes can definitely affect performance and potentially increase run-time.
+Once the image is in RGB format, we can insert it into the `image2colorpalette()` function and store it as a variable.. The default `palette_size` is 10, but we are going to extract 30 colors. Higher resolution images and the large palette sizes can definitely affect performance and potentially increase run-time.
 
 ``` python
 import image2colorpalette
@@ -32,7 +32,7 @@ graduation_bgr = cv2.imread('../DATA/kanye_graduation_cover.png')
 graduation_rgb = cv2.cvtColor(graduation_bgr, cv2.COLOR_BGR2RGB)
 
 # Generate color palette
-graduation_palette = image2colorpalette(graduation_rgb, palette_size=20)
+graduation_palette = image2colorpalette(graduation_rgb, palette_size=30)
 ```
 
 **Print a preview of the palette, RGB, and HEX codes:**
@@ -92,3 +92,75 @@ array(['#563b21', '#b54f97', '#fbf8e9', '#531974', '#d68f57', '#ce2568',
        '#662b84', '#cd798b', '#879538', '#ece79f', '#1c2565', '#cbba3b'],
       dtype='<U7')
 ```
+
+**Use the palette in visualizations:**
+``` python
+# Dataset of track names and length (seconds) of each song on Kanye's album.
+
+track_names = ['Good Morning',
+               'Champion',
+               'Stronger',
+               'I Wonder',
+               'Good Life',
+               'Can\'t Tell Me Nothing',
+               'Barry Bonds',
+               'Drunk and Hot Girls',
+               'Flashing Lights',
+               'Everything I Am',
+               'The Glory',
+               'Homecoming',
+               'Big Brother'
+               ]
+
+track_length = [195,
+                167,
+                312,
+                243,
+                207,
+                271,
+                204,
+                313,
+                237,
+                227,
+                212,
+                203,
+                287         
+                ]
+```
+_Method 1: Set palette size to 13 and use only the colors from the output._
+``` python
+# Extract color palette
+graduation_palette = image2colorpalette(graduation_rgb, palette_size=13)
+
+plt.figure(figsize=(30,8))
+
+plt.bar(track_names,
+        track_length, 
+        color=graduation_palette.get_hex(),
+        edgecolor='black')
+plt.title('Kanye West - Graduation: Track Length (Seconds)', size=20)
+plt.xticks(size=12)
+plt.yticks(size=14)
+```
+Since the cluster/palette size of the image was smaller than the previous run example with 30, our variety of colors get reduced and the most dominant colors of the image get selected.
+
+Let's try another method by using the 30 colors palette but randomly selection 13 of them. We can keep running the next chunk to generate new random combinations until we settle on one we like.
+
+_Method 2: Set palette size to 30 and randomly select 13 of them._
+``` python
+# Extract color palette
+import random
+
+graduation_palette = image2colorpalette(graduation_rgb, palette_size=30)
+
+plt.figure(figsize=(30,8))
+
+plt.bar(track_names,
+        track_length, 
+        color=random.sample(list(graduation_palette.get_hex()),len(track_names)),
+        edgecolor='black')
+plt.title('Kanye West - Graduation: Track Length (Seconds)', size=20)
+plt.xticks(size=12)
+plt.yticks(size=14)
+```
+
