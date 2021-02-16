@@ -64,10 +64,10 @@ class image2colorpalette:
 
         plt.figure()
 
-        #subplot(r,c) provide the no. of rows and columns
+        # subplot(r,c) provide the no. of rows and columns
         f, axarr = plt.subplots(2,1,figsize=(15,10), constrained_layout=True) 
 
-        # use the created array to output your multiple images. In this case I have stacked 4 images vertically
+        # Use the created array to output images.
         axarr[0].imshow(self.cluster_rgb[indices])
         axarr[0].axis('off')
 
