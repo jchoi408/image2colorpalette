@@ -20,7 +20,7 @@ After we `import image2colorpalette`, we need to use OpenCV to select an image f
 
 ![graduation](./kanye_graduation_cover.png)
 
-Once the image is in RGB format, we can insert it into the `image2colorpalette()` function and store it as a variable.. The default `palette_size` is 10, but we are going to extract 30 colors. Higher resolution images and the large palette sizes can definitely affect performance and potentially increase run-time.
+Once the image is in RGB format, we can insert it into the `image2colorpalette()` function and store it as a variable. The default `palette_size` is 10, but we are going to extract 30 colors. Higher resolution images and large palette sizes can definitely affect performance and potentially increase run-time.
 
 ``` python
 import image2colorpalette
