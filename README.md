@@ -18,7 +18,7 @@ from sklearn.cluster import KMeans
 
 After we `import image2colorpalette`, we need to use OpenCV to select an image from a directory and then convert it to RGB. In our example, we will be using Kanye West's _Graduation_ album cover.
 
-![graduation](./kanye_graduation_cover.png)
+![graduation](./kanye_graduation_cover.png){:height="50%" width="50%"}
 
 Once the image is in RGB format, we can insert it into the `image2colorpalette()` function and store it as a variable.. The default `palette_size` is 10, but we are going to extract 20 colors. Higher resolution images and the large palette sizes can definitely affect performance and potentially increase run-time.
 
@@ -39,7 +39,7 @@ graduation_palette = image2colorpalette(graduation_rgb, palette_size=20)
 ``` python
 graduation_palette.show_palette()
 ```
-![show_palette](./graduation_show_palette.JPG){:height="50%" width="50%"}
+![show_palette](./graduation_show_palette.JPG)
 
 **Return a nested array of RGB codes:**
 ``` python
