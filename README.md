@@ -39,7 +39,7 @@ graduation_palette = image2colorpalette(graduation_rgb, palette_size=20)
 ``` python
 graduation_palette.show_palette()
 ```
-![show_palette](./graduation_show_palette.JPG)
+![show_palette](./graduation_show_palette.JPG){:height="50%" width="50%"}
 
 **Return a nested array of RGB codes:**
 ``` python
